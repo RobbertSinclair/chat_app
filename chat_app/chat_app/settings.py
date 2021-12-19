@@ -110,6 +110,15 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+CHANNEL_LAYERS = {
+    "default": {
+        "BACKEND": "asgi_redis.RedisChannelLayer",
+        "CONFIG": {
+            "hosts": [("localhost", 6379)],
+        },
+        "ROUTING": "example_channels.routing.channel_routing",
+    }
+}
 
 # Internationalization
 # https://docs.djangoproject.com/en/2.2/topics/i18n/
